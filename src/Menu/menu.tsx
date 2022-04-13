@@ -150,20 +150,15 @@ const Menu: React.FC<MenuProps> = () => {
   return (
     <div>
       <h1>Concursantes oficiales:</h1>
-      <div className={styles.filter}>
-        <button onClick={() =>select === "Name"? setSelect("Name2"): setSelect("Name")}>Nombre</button>
-        <button onClick={() => select === "Realitys"? setSelect("Realitys2"): setSelect("Realitys")}>Realitys participados</button>
-        <button onClick={() => select === "Reality Won"? setSelect("Reality Won2"): setSelect("Reality Won")}>Realitys ganados</button>
-        <button onClick={() => select=== "Age"? setSelect("Age2"): setSelect("Age")}>Edad</button>
-      </div>
+    
       <div className={styles.contestant}>
       <table>
       <tr>
-          <th>Nombre</th>
-          <th>Edad</th>
+          <button onClick={() =>select === "Name"? setSelect("Name2"): setSelect("Name")}><th>Nombre</th></button>
+          <button onClick={() => select=== "Age"? setSelect("Age2"): setSelect("Age")}><th>Edad</th></button>
           <th>Profesion</th>
-          <th>Reality participados</th>
-          <th>Reality ganados</th>
+          <button onClick={() => select === "Realitys"? setSelect("Realitys2"): setSelect("Realitys")}><th>Reality participados</th></button>
+          <button onClick={() => select === "Reality Won"? setSelect("Reality Won2"): setSelect("Reality Won")}><th>Reality ganados</th></button>
       </tr>
       {
           contestants.map(x => {
