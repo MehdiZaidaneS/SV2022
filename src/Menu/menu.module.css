@@ -1,0 +1,16 @@
+/* .contestant{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+} 
+
+.contestant div{
+    margin: 10px;
+}
+
+.filter{
+    display: flex;
+}
+
+.filter p {
+    margin: 5px;
+} */

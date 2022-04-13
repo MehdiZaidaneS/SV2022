@@ -1,0 +1,23 @@
+.content a{
+    text-decoration: none;
+    color: rgb(68, 68, 68);
+    font-size: 30px;
+    text-align: center;
+    margin: 5px;
+}
+
+.content{
+    background-color: bisque;
+    display: flex;
+    align-items: center;
+}
+
+.content a:hover {
+    color: white;
+    background-color: black;
+}
+
+.navbar{
+    justify-content: center;
+    margin: 0 auto;
+}
