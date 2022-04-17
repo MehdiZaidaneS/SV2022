@@ -1,28 +1,35 @@
 import React, { useState } from 'react'
-import Marta from "../Pics/Marta.jpg"
-import Kiko from "../Pics/Kiko.jpg"
-import Ainhoa from "../Pics/Ainhoa.jpg"
-import Nacho from "../Pics/Nacho.jpg"
-import Ignacio from "../Pics/Ignacio.jpg"
-import Anabel from "../Pics/Anabel.jpg"
-import Anuar from "../Pics/Anuar.jpeg"
-import Ruben from "../Pics/Ruben.jpeg"
-import Charo from "../Pics/Charo.jpg"
-import Ana from "../Pics/Ana.png"
-import Mariana from "../Pics/Mariana.jpeg"
-import Alejandro from "../Pics/Alejandro.jpg"
-import Desiree from "../Pics/Desiree.png"
-import Juan from "../Pics/Juan.jpg"
-import Tania from "../Pics/Tania.png"
-import Yulen from "../Pics/Yulen.jpg"
+import Marta from "../Pics/MartaPenate.jpg"
+import Kiko from "../Pics/KikoMatamoros.jpg"
+import Ainhoa from "../Pics/AinhoaCantalapiedra.jpg"
+import Nacho from "../Pics/NachoPalau.jpg"
+import Ignacio from "../Pics/IgnacioDeBorbon.jpg"
+import Anabel from "../Pics/AnabelPantoja.jpg"
+import Anuar from "../Pics/AnuarBeno.jpg"
+import Ruben from "../Pics/RubenSanchez.jpg"
+import Charo from "../Pics/CharoVega.jpg"
+import Ana from "../Pics/AnaLuque.jpg"
+import Mariana from "../Pics/MarianaRodriguez.jpg"
+import Alejandro from "../Pics/AlejandroNieto.jpg"
+import Desiree from "../Pics/DesireeRodriguez.jpg"
+import Juan from "../Pics/JuanMunoz.jpg"
+import Tania from "../Pics/TaniaMedina.jpg"
+import Yulen from "../Pics/YulenPereira.jpg"
 import styles from "./contestant.module.css"
 
-type MenuProps = {
+type ContestantProps = {
+  name: string
+          age: number
+          profession: string
+          realitys: number
+          wonRealitys: number
+          img: string
+          id: number
 }
 
-const Contestant: React.FC<MenuProps> = () => {
+const Contestant: React.FC<any> = (props) => {
 
-   const contestants = [
+   const contestants: ContestantProps[] = [
         {
           name: "Yulen Pereira",
           age: 26,
@@ -44,7 +51,7 @@ const Contestant: React.FC<MenuProps> = () => {
         {
           name: "Desiree Rodriguez",
           age: 36,
-          profession: "-",
+          profession: "Artista",
           realitys: 1,
           wonRealitys: 0,
           img: Desiree,
@@ -71,7 +78,7 @@ const Contestant: React.FC<MenuProps> = () => {
         {
             name: "Ana Luque",
             age: 42,
-            profession: "-",
+            profession: "Bloguera",
             realitys: 0,
             wonRealitys: 0,
             img: Ana,
@@ -89,7 +96,7 @@ const Contestant: React.FC<MenuProps> = () => {
         {
             name: "Anuar Beno",
             age: 23,
-            profession: "-",
+            profession: "Actor",
             realitys: 0,
             wonRealitys: 0,
             img: Anuar,
@@ -170,6 +177,8 @@ const Contestant: React.FC<MenuProps> = () => {
    ]
   
    const [select, setSelect] = useState("Name");
+   const [currentItem, setCurrentItem] = useState<ContestantProps|null>(null);
+   
   
 
  
@@ -192,13 +201,33 @@ const Contestant: React.FC<MenuProps> = () => {
     }
        
     
-         
+     const nextImg= (project: ContestantProps) =>{
+         let nextIndex = 0;
+         let currentIndex = contestants.findIndex(x => project.id === x.id)
+         nextIndex = currentIndex === contestants.length - 1 ?  0  : currentIndex + 1;
+         setCurrentItem(contestants[nextIndex]);
+        }
+
+        const previousImg= (project: ContestantProps) =>{
+          let nextIndex = 0;
+          let currentIndex = contestants.findIndex(x => project.id === x.id)
+          nextIndex = currentIndex === 0 ? contestants.length - 1 :  currentIndex - 1;
+          setCurrentItem(contestants[nextIndex]);
+        }
             
 
 
   return (
     <div>
-      <h1>Concursantes oficiales:</h1>
+      {
+      currentItem &&
+        <div className={styles.picture}>
+            <button onClick={()=> previousImg(currentItem)}>Left</button>
+            <img src={currentItem.img} alt=""></img>
+            <button onClick={() => nextImg(currentItem)}>Right</button>
+        </div>
+
+      }
       <div className={styles.contestant}>
          <table className={styles.contestants}>
            <tr>
@@ -212,7 +241,7 @@ const Contestant: React.FC<MenuProps> = () => {
              contestants.map(x => {
                return(
                  <tr key={x.id}>
-                   <td>{x.name}</td>
+                   <td><button onClick={() => setCurrentItem(x)}>{x.name}</button></td>
                    <td>{x.age}</td>
                    <td>{x.profession}</td>
                    <td>{x.realitys}</td>

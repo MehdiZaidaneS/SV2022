@@ -5,7 +5,7 @@
 
 .contestants {
     font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
+    /* border-collapse: collapse; */
     width: 80%;
   }
   
@@ -20,12 +20,14 @@
   
   .contestants th {
     text-align: left;
-    background-color: #cfb646;
+    background-color: rgb(219, 148, 61);
     color: white;
     font-size: 18px;
   }
+  
+  
 
-.contestants button{
+th button{
     text-align: left;
     border: none;
     background: none;
@@ -38,7 +40,28 @@
     padding: 10px;  
 }
 
-.contestants button:hover{
-  cursor: pointer;
-  background-color: #c7ab31;
+td button{
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: left;
+  border: none;
+  background: none;
+  width: 100%;
+  height: 100%;
+  color: rgb(0, 0, 0);
+  font-size: 18px;
 }
+
+th button:hover{
+  cursor: pointer;
+  background-color: rgba(199, 129, 44, 0.664);
+}
+
+.picture img{
+  position: absolute;
+margin-left: auto;
+margin-right: auto;
+left: 0;
+right: 0;
+text-align: center;
+}
+

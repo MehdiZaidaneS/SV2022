@@ -9,10 +9,13 @@ type FrontpageProps = {
 
 const Frontpage: React.FC<FrontpageProps> = ({img, titular}) => {
   return (
-    <div className={styles.frontpage}>
-      <img src={img} alt=""></img>
+    <div className={styles.frontPageBlock}>
+      <div className={styles.frontpage}>
+        <img src={img} alt=""></img>
+       </div> 
       <h1>{titular}</h1>
     </div>
+    
   )
 }
 
