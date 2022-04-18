@@ -11,7 +11,7 @@ type MenuProps = {
 const Menu: React.FC<MenuProps> = () => {
   return (
     <div>
-      <Frontpage img={noticia} titular={"COMIENZA SUPERVIVIENTES 2022!"}></Frontpage>
+      <Frontpage img={noticia} titular={"COMIENZA SUPERVIVIENTES 2022!"}></Frontpage> 
        <Contestant></Contestant>
     </div>
   )

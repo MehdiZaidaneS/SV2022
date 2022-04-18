@@ -1,3 +1,5 @@
+
+
 .contestant table {
     margin: 0 auto;
     justify-content: center;
@@ -6,7 +8,7 @@
 .contestants {
     font-family: Arial, Helvetica, sans-serif;
     /* border-collapse: collapse; */
-    width: 80%;
+    width: 65%;
   }
   
   .contestants td {
@@ -37,7 +39,9 @@ th button{
     color: white;
     font-weight: bold;
     font-size: 18px;
-    padding: 10px;  
+    padding: 10px;
+    display: flex;
+    align-items: center;
 }
 
 td button{
@@ -56,12 +60,52 @@ th button:hover{
   background-color: rgba(199, 129, 44, 0.664);
 }
 
-.picture img{
+/* .picture img{
   position: absolute;
 margin-left: auto;
 margin-right: auto;
 left: 0;
 right: 0;
 text-align: center;
+} */
+
+
+.picture{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding-bottom: 50px;
+  padding-top: 20px;
 }
 
+ .previousButton{
+  transform: skewY(25deg); 
+  opacity: 50%;
+  background: none;
+  border: none;
+  transition: 0.3s ease;
+} 
+
+.nextButton{
+  transform: skewY(-25deg);
+  opacity: 50%;
+  background: none;
+  border: none;
+  transition: 0.3s ease;
+}
+
+.previousButton:hover{
+  opacity: 70%;
+  cursor: pointer;
+} 
+
+.nextButton:hover{
+  opacity: 70%;
+  cursor: pointer;
+}
+
+.realitysTh{
+  width: 250px;
+}
